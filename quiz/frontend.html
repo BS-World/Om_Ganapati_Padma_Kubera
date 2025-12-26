@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Meta -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Frontend Developer Skill Assessment | InternSpark</title>
+
+<meta name="description"
+      content="Test your frontend development skills with InternSpark’s Frontend Developer Skill Assessment. Evaluate your knowledge of HTML, CSS, JavaScript, accessibility, performance, and real-world best practices.">
+
+<meta name="keywords"
+      content="Frontend Developer Skill Assessment, Frontend Quiz, HTML CSS JavaScript Test, Frontend Developer Test Online, InternSpark Assessment">
+
+<meta name="author" content="InternSpark">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://internspark.in/quiz/frontend.html">
+
+<!-- Open Graph (Facebook / LinkedIn / WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Frontend Developer Skill Assessment | InternSpark">
+<meta property="og:description"
+      content="Validate your frontend skills with a structured assessment covering HTML, CSS, JavaScript, accessibility, and performance.">
+<meta property="og:url" content="https://internspark.in/quiz/frontend.html">
+<meta property="og:image" content="https://internspark.in/img/domains/frontend.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frontend Developer Skill Assessment | InternSpark">
+<meta name="twitter:description"
+      content="Take the Frontend Developer Skill Assessment by InternSpark. Test your HTML, CSS, JavaScript, and frontend best practices.">
+<meta name="twitter:image" content="https://internspark.in/img/domains/frontend.png">
+
+
+
+
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <meta name="theme-color" content="#0f0f23">
+
+
+
+
+    <!-- ================= SEO & UI ================= -->
+    <meta name="google" content="notranslate">
+    <meta name="theme-color" content="#0f0f23">
+
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://internspark.in/css/style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-519NNPN4L1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-519NNPN4L1');
+    </script>
+    <style>
+        /* ================= BASE ================= */
+        body {
+            font-family: 'Heebo', sans-serif;
+            padding-top: 80px;
+        }
+
+        /* ================= HERO HEADER ================= */
+        .hero-header {
+            position: relative;
+            padding: 100px 20px;
+            text-align: center;
+            background: url('https://internspark.in/img/banar1.jpg') center/cover no-repeat;
+            color: #fff;
+        }
+
+        .hero-header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            pointer-events: none;
+        }
+
+        .hero-header * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ================= QUIZ CONTAINER ================= */
+        .quiz-box {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 22px;
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.10),
+                    rgba(255, 255, 255, 0.04));
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 193, 7, 0.35);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        /* ================= TIMER BAR ================= */
+        .quiz-timer-bar {
+            position: sticky;
+            top: 78px;
+            z-index: 10;
+            margin-bottom: 25px;
+            padding: 12px 18px;
+            border-radius: 14px;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 193, 7, 0.35);
+        }
+
+        .quiz-timer-bar span {
+            color: #FFC107;
+            font-weight: 700;
+        }
+
+        /* ================= QUESTIONS ================= */
+        #questions {
+            counter-reset: question;
+        }
+
+        .question {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border-color .3s ease;
+        }
+
+        .question:hover {
+            border-color: rgba(255, 193, 7, 0.45);
+        }
+
+        .question h6 {
+            display: flex;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* Question number badge */
+        .question h6::before {
+            counter-increment: question;
+            content: counter(question);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #FFC107;
+            color: #111;
+            font-size: .85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ================= OPTIONS ================= */
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition: background .25s ease, border-color .25s ease, transform .2s ease;
+        }
+
+        /* Kill Bootstrap / list artifacts */
+        .form-check,
+        .form-check * {
+            list-style: none;
+        }
+
+        .form-check::before,
+        .form-check::after,
+        .form-check-label::before,
+        .form-check-label::after {
+            content: none;
+            display: none;
+        }
+
+        .form-check:hover {
+            background: rgba(255, 193, 7, 0.12);
+            border-color: rgba(255, 193, 7, 0.45);
+            transform: translateY(-1px);
+        }
+
+        /* Radio */
+        .form-check-input {
+            margin: 0;
+            transform: scale(1.1);
+            flex-shrink: 0;
+        }
+
+        /* Label */
+        .form-check-label {
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Selected */
+        .form-check-input:checked {
+            background-color: #FFC107;
+            border-color: #FFC107;
+        }
+
+        .form-check-input:checked+.form-check-label {
+            color: #FFC107;
+            font-weight: 600;
+        }
+
+        /* ================= RESULT ================= */
+        .result-box {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 193, 7, 0.35);
+            animation: fadeUp .5s ease;
+        }
+
+        .pass {
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        .fail {
+            color: #dc3545;
+            font-weight: 700;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= MOBILE ================= */
+        @media (max-width: 576px) {
+            .quiz-box {
+                padding: 22px;
+            }
+
+            .question {
+                padding: 18px;
+            }
+        }
+
+        .modal-content {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-body h2 {
+            color: #FFC107;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+</head>
+
+
+<body>
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-black bg-opacity-75 backdrop-blur py-2 shadow">
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center fw-bold fs-3" href="index.html">
+                <img src="https://internspark.in/img/navbar-logo.png" alt="InternSpark Logo" height="70" class="me-2">
+                <!-- <span style="color:var(--yellow)">Intern<span style="color:#fff">Spark</span> </span> -->
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler bg-warning border-0 p-2 rounded" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <i class="fas fa-bars text-dark fs-5"></i>
+            </button>
+
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" href="https://internspark.in/index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                            Internship
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark rounded-4">
+                            <li><a class="dropdown-item" href="https://internspark.in/internship.html">Internship
+                                    Apply</a></li>
+
+                            <li><a class="dropdown-item" href="https://internspark.in/internProfile.html">
+                                    Intern Profile
+                                </a></li>
+                            <li><a class="dropdown-item" href="https://internspark.in/task.html">Tasks</a></li>
+
+                            <li><a class="dropdown-item" href="https://internspark.in/submission.html">Task
+                                    Submission</a></li>
+                            <li><a class="dropdown-item" href="https://internspark.in/certificate.html">Certificate</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="https://internspark.in/assessment.html">Assessment</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="https://internspark.in/Contact.html">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="https://internspark.in/about.html">About</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark rounded-4">
+                            <li><a class="dropdown-item" href="offer-letter.html">Offer Letter</a></li>
+                            <li><a class="dropdown-item" href="lor.html">Letter of Recommendation</a></li>
+                            <li><a class="dropdown-item" href="report-card.html">Report Card</a></li>
+                            <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                            <li><a class="dropdown-item" href="code-editor.html">Code Editor</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-warning fw-bold px-4 py-2 rounded-pill"
+                            href="https://internspark.in/internship.html">
+                            Apply Now
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-header">
+        <div class="container text-center">
+            <h1>
+                <span style="color: yellow;">Frontend Developer — Skill Assessment</span>
+            </h1>
+
+            <p class="lead text-white">
+                Validate your frontend expertise with a structured assessment covering
+                <strong>HTML, CSS, JavaScript, Accessibility, Performance</strong> and
+                real-world best practices.
+            </p>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="container pb-5">
+        <div class="quiz-box mx-auto">
+
+            <h2 class="text-center mb-4">
+                Frontend Developer <span class="text-warning">Assessment</span>
+            </h2>
+            <div class="quiz-timer-bar">
+                <div>
+                    ⏱ Time Remaining:
+                    <span id="time">20:00</span>
+                </div>
+                <div>
+                    Passing Score: <strong>60%</strong>
+                </div>
+            </div>
+
+
+            <form id="quizForm">
+
+                <div id="questions"></div>
+
+                <div class="text-center">
+                    <button type="button" onclick="submitQuiz()" class="btn btn-warning px-5 py-2 rounded-pill fw-bold">
+                        Submit Assessment
+                    </button>
+                    <p class="text-center text-secondary mt-3 small">
+                        ⚠ Do not refresh the page. Assessment auto-submits when time ends.
+                    </p>
+
+                </div>
+            </form>
+
+
+
+        </div>
+    </section>
+
+    <script>
+        /* ================= QUESTIONS ================= */
+        const questions = [
+            {
+                q: "Which HTML attribute is essential for screen readers to describe images?",
+                options: ["title", "alt", "src", "role"],
+                answer: 1 // alt
+            },
+            {
+                q: "Which CSS property adds space inside an element’s border?",
+                options: ["margin", "gap", "padding", "border-spacing"],
+                answer: 2 // padding
+            },
+            {
+                q: "What is the key difference between == and === in JavaScript?",
+                options: [
+                    "== compares only type",
+                    "=== compares value and type",
+                    "=== is slower",
+                    "== is deprecated"
+                ],
+                answer: 1
+            },
+            {
+                q: "Which CSS unit is relative to the font-size of the parent element?",
+                options: ["px", "rem", "em", "vw"],
+                answer: 2 // em
+            },
+            {
+                q: "Event delegation mainly relies on which JavaScript concept?",
+                options: ["Closures", "Bubbling", "Promises", "Shadow DOM"],
+                answer: 1 // Bubbling
+            },
+            {
+                q: "Which meta tag is mandatory for responsive layouts on mobile devices?",
+                options: ["charset", "viewport", "robots", "theme-color"],
+                answer: 1
+            },
+            {
+                q: "Which of the following is NOT a valid JavaScript data type?",
+                options: ["Undefined", "Boolean", "Float", "Symbol"],
+                answer: 2 // Float
+            },
+            {
+                q: "Which CSS layout system is best suited for one-dimensional layouts?",
+                options: ["Grid", "Float", "Flexbox", "Position"],
+                answer: 2 // Flexbox
+            },
+            {
+                q: "What does DOM stand for in web development?",
+                options: [
+                    "Document Object Model",
+                    "Data Object Model",
+                    "Digital Object Manager",
+                    "Document Order Map"
+                ],
+                answer: 0
+            },
+            {
+                q: "Which method safely converts a JSON string into a JavaScript object?",
+                options: ["JSON.parse()", "JSON.stringify()", "parseJSON()", "Object.parse()"],
+                answer: 0
+            },
+            {
+                q: "Which HTML tag conveys meaning about the content it contains?",
+                options: ["<div>", "<span>", "<section>", "<b>"],
+                answer: 2 // section
+            },
+            {
+                q: "Which JavaScript keyword prevents variable reassignment?",
+                options: ["var", "let", "const", "static"],
+                answer: 2 // const
+            },
+            {
+                q: "What is the default value of the CSS position property?",
+                options: ["absolute", "relative", "fixed", "static"],
+                answer: 3 // static
+            },
+            {
+                q: "Which CSS pseudo-class applies when a user hovers over an element?",
+                options: [":active", ":focus", ":hover", "::after"],
+                answer: 2
+            },
+            {
+                q: "Which JavaScript array method returns a new array without mutating the original?",
+                options: ["forEach", "map", "push", "pop"],
+                answer: 1 // map
+            },
+            {
+                q: "Which practice most improves frontend performance?",
+                options: [
+                    "Using inline CSS everywhere",
+                    "Minifying CSS and JS files",
+                    "Using large uncompressed images",
+                    "Disabling browser cache"
+                ],
+                answer: 1
+            },
+            {
+                q: "ARIA attributes are primarily used to improve:",
+                options: [
+                    "SEO ranking",
+                    "Accessibility for assistive technologies",
+                    "Animations",
+                    "Security"
+                ],
+                answer: 1
+            },
+            {
+                q: "Which HTML element is used to link an external CSS file?",
+                options: ["<style>", "<css>", "<script>", "<link>"],
+                answer: 3
+            },
+            {
+                q: "Which tool is most commonly used to debug frontend issues in browsers?",
+                options: ["VS Code", "Chrome DevTools", "Git", "NPM"],
+                answer: 1
+            }
+        ];
+
+
+        /* ================= RENDER (FINAL FIXED) ================= */
+        const container = document.getElementById("questions");
+
+        function escapeHTML(str) {
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        questions.forEach((item, i) => {
+            container.innerHTML += `
+    <div class="question">
+      <h6>${item.q}</h6>
+
+      ${item.options.map((opt, idx) => {
+                const id = `q${i}_opt${idx}`;
+                return `
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q${i}"
+              id="${id}"
+              value="${idx}"
+            >
+            <label class="form-check-label" for="${id}">
+              ${escapeHTML(opt)}
+            </label>
+          </div>
+        `;
+            }).join("")}
+
+    </div>
+  `;
+        });
+
+
+
+        /* ================= TIMER (20 MIN) ================= */
+        /* ================= PERSISTENT TIMER ================= */
+        const TOTAL_TIME = 20 * 60;
+
+        const startTime =
+            localStorage.getItem("frontend_start_time") ||
+            Date.now();
+
+        localStorage.setItem("frontend_start_time", startTime);
+
+        const timerEl = document.getElementById("time");
+
+        const timer = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const remaining = TOTAL_TIME - elapsed;
+
+            if (remaining <= 0) {
+                clearInterval(timer);
+                submitQuiz(true);
+                return;
+            }
+
+            const m = Math.floor(remaining / 60);
+            const s = remaining % 60;
+            timerEl.textContent = `${m}:${s.toString().padStart(2, "0")}`;
+        }, 1000);
+    </script>
+
+    <script>
+        function submitQuiz(auto = false) {
+
+            if (typeof timer !== "undefined") {
+                clearInterval(timer);
+            }
+
+            let score = 0;
+            questions.forEach((q, i) => {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && parseInt(selected.value) === q.answer) {
+                    score++;
+                }
+            });
+
+            localStorage.setItem("frontend_score", score);
+
+            const modalScore = document.getElementById("modalScore");
+            const modalMsg = document.getElementById("modalResultMsg");
+            const modalCertBtn = document.getElementById("modalCertificateBtn");
+            const retryBtn = document.getElementById("retryBtn");
+
+            modalScore.innerText = score;
+
+            if (score >= 12) {
+                // ✅ PASS
+                modalMsg.innerHTML = `<span class="pass">🎉 Congratulations! You Passed.</span>`;
+                modalCertBtn.classList.remove("d-none");
+                retryBtn.classList.add("d-none");
+
+                localStorage.setItem("frontend_certificate", "unlocked");
+                localStorage.setItem("frontend_attempted", "true"); // lock only on pass
+
+            } else {
+                // ❌ FAIL → RETEST ALLOWED
+                modalMsg.innerHTML = `<span class="fail">❌ You did not pass. Please retry the assessment.</span>`;
+                retryBtn.classList.remove("d-none");
+
+                localStorage.removeItem("frontend_certificate");
+                localStorage.removeItem("frontend_attempted");
+                localStorage.removeItem("frontend_start_time");
+            }
+
+            // Disable inputs for current attempt
+            document.querySelectorAll('input[type="radio"]')
+                .forEach(r => r.disabled = true);
+
+            const resultModal = new bootstrap.Modal(
+                document.getElementById("resultModal"),
+                { backdrop: "static", keyboard: false }
+            );
+            resultModal.show();
+        }
+    </script>
+
+
+
+
+
+    <!-- RESULT MODAL -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white rounded-4 border border-warning">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">
+                        Assessment Result
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+
+
+                </div>
+                <button id="retryBtn" class="btn btn-warning mt-3 d-none" onclick="location.reload()">
+                    🔄 Retry Assessment
+                </button>
+
+                <div class="modal-body text-center">
+                    <h2 class="fw-bold mb-2">
+                        <span id="modalScore"></span>/19
+                    </h2>
+
+                    <p id="modalResultMsg" class="fs-5 mb-3"></p>
+
+                    <a id="modalCertificateBtn" href="/certificate.html"
+                        class="btn btn-success px-4 py-2 rounded-pill d-none">
+                        🎓 Download Certificate
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <footer class="pt-5 pb-4 mt-5 position-relative">
+        <div class="container">
+            <div class="row gy-4">
+
+                <!-- Brand -->
+                <div class="col-lg-4 col-md-6">
+                    <img src="https://internspark.in/img/navbar-logo.png" alt="InternSpark Logo" class="footer-logo">
+
+                    <p class="text-secondary mt-3">
+                        InternSpark is an online internship & skill development platform
+                        powered by Alfido Tech.
+                    </p>
+
+                    <!-- Social Media -->
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="https://www.linkedin.com/company/internspark" target="_blank" class="footer-social"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/internspark" target="_blank" class="footer-social"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/internspark" target="_blank" class="footer-social" aria-label="Twitter">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@internspark" target="_blank" class="footer-social"
+                            aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="/index.html" class="footer-link">Home</a></li>
+                        <li><a href="/domains.html" class="footer-link">Domains</a></li>
+                        <li><a href="/about.html" class="footer-link">About</a></li>
+                        <li><a href="/faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="/sitemap.xml" class="footer-link">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="/privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
+                        <li><a href="/refund.html" class="footer-link">Refund Policy</a></li>
+                        <li><a href="/disclaimer.html" class="footer-link">Disclaimer</a></li>
+                        <li><a href="/accessibility.html" class="footer-link">Accessibility</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Address -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Contact & Address</h6>
+
+                    <p class="text-secondary small mb-2">
+                        <i class="fas fa-map-marker-alt me-2 text-warning"></i>
+                        Bengaluru, Karnataka – 560095, India
+                    </p>
+
+                    <p class="text-secondary small mb-2">
+                        <i class="fas fa-envelope me-2 text-warning"></i>
+                        <a href="mailto:info@internspark.in" class="footer-link">
+                            info@internspark.in
+                        </a>
+                    </p>
+
+                    <p class="text-secondary small mb-2">
+                        <i class="fas fa-phone me-2 text-warning"></i>
+                        <a href="tel:+919977465250" class="footer-link">
+                            +91 99774 65250
+                        </a>
+                    </p>
+
+                    <p class="text-secondary small mb-0">
+                        <i class="fas fa-headset me-2 text-warning"></i>
+                        <a href="mailto:support@internspark.in" class="footer-link">
+                            support@internspark.in
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+
+            <hr class="my-4 border-secondary">
+
+            <!-- Bottom Bar -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
+                <p class="mb-2 mb-md-0 text-secondary small">
+                    © 2025 InternSpark | Powered by
+                    <a href="https://alfidotech.com" target="_blank">Alfido Tech</a>
+                </p>
+                <p class="text-secondary small mb-0">
+                    Made with ❤️ for learners
+                </p>
+            </div>
+
+            <!-- Legal Safe Disclaimer -->
+            <p class="text-secondary small text-center mt-3">
+                InternSpark is a private skill-development initiative and is not affiliated
+                with AICTE or any government organization.
+            </p>
+        </div>
+    </footer>
+    <!-- ================= Footer End ================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
