@@ -1,18 +1,13 @@
 User-agent: *
 Allow: /
 
-# Block future internal areas (safe even if folder not present)
+# Block non-public / system paths
 Disallow: /admin/
 Disallow: /dashboard/
-Disallow: /profile/
 Disallow: /api/
 Disallow: /includes/
 Disallow: /config/
 Disallow: /private/
 
-# Allow assets
-Allow: /css/
-Allow: /img/
-Allow: /task/
-
-Sitemap: https://www.internspark.in/sitemap.xml
+# Sitemap (canonical domain)
+Sitemap: https://internspark.in/sitemap.xml
